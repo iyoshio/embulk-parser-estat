@@ -1,0 +1,63 @@
+in:
+  type: file
+  path_prefix: /home/vagrant/sample.
+  parser:
+    type:    estat
+    charset: UTF-8
+    master:
+      root: $.GET_STATS_DATA.STATISTICAL_DATA.CLASS_INF.CLASS_OBJ
+      sub: CLASS
+      columns:
+        - { name: _id,           type: string,  path: "$.@id" }
+        - { name: _name,         type: string,  path: "$.@name" }
+        - { name: _class_code,   type: string,  path: "'@code'" }
+        - { name: _class_level,  type: string,  path: "'@level'" }
+        - { name: _class_name,   type: string,  path: "'@name'" }
+        - { name: _class_unit,   type: string,  path: "'@unit'" }
+    transaction:
+      root: $.GET_STATS_DATA.STATISTICAL_DATA.DATA_INF.VALUE
+      columns:
+        - { name: value,  type: string, path: "$"      }
+        - { name: area,   type: string, path: "@area"  }
+        - { name: cat01,  type: string, path: "@cat01" }
+        - { name: cat02,  type: string, path: "@cat02" }
+        - { name: cat03,  type: string, path: "@cat03" }
+        - { name: cat04,  type: string, path: "@cat04" }
+        - { name: cat05,  type: string, path: "@cat05" }
+        - { name: cat06,  type: string, path: "@cat06" }
+        - { name: cat07,  type: string, path: "@cat07" }
+        - { name: cat08,  type: string, path: "@cat08" }
+        - { name: cat09,  type: string, path: "@cat09" }
+        - { name: cat10,  type: string, path: "@cat00" }
+        - { name: cat11,  type: string, path: "@cat11" }
+        - { name: cat12,  type: string, path: "@cat12" }
+        - { name: cat13,  type: string, path: "@cat13" }
+        - { name: cat14,  type: string, path: "@cat14" }
+        - { name: cat15,  type: string, path: "@cat15" }
+        - { name: tab,    type: string, path: "@tab"   }
+        - { name: time,   type: string, path: "@time"  }
+        - { name: unit,   type: string, path: "@unit"  }
+
+    map:
+      - { transaction_key: "area",  master_key: _id, master_value: _class_code, append: [ "_class_name", "_class_level", "_class_unit" ] }
+      - { transaction_key: "cat01", master_key: _id, master_value: _class_code, append: [ "_class_name", "_class_level", "_class_unit" ] }
+      - { transaction_key: "cat02", master_key: _id, master_value: _class_code, append: [ "_class_name", "_class_level", "_class_unit" ] }
+      - { transaction_key: "cat03", master_key: _id, master_value: _class_code, append: [ "_class_name", "_class_level", "_class_unit" ] }
+      - { transaction_key: "cat04", master_key: _id, master_value: _class_code, append: [ "_class_name", "_class_level", "_class_unit" ] }
+      - { transaction_key: "cat05", master_key: _id, master_value: _class_code, append: [ "_class_name", "_class_level", "_class_unit" ] }
+      - { transaction_key: "cat06", master_key: _id, master_value: _class_code, append: [ "_class_name", "_class_level", "_class_unit" ] }
+      - { transaction_key: "cat07", master_key: _id, master_value: _class_code, append: [ "_class_name", "_class_level", "_class_unit" ] }
+      - { transaction_key: "cat08", master_key: _id, master_value: _class_code, append: [ "_class_name", "_class_level", "_class_unit" ] }
+      - { transaction_key: "cat09", master_key: _id, master_value: _class_code, append: [ "_class_name", "_class_level", "_class_unit" ] }
+      - { transaction_key: "cat10", master_key: _id, master_value: _class_code, append: [ "_class_name", "_class_level", "_class_unit" ] }
+      - { transaction_key: "cat11", master_key: _id, master_value: _class_code, append: [ "_class_name", "_class_level", "_class_unit" ] }
+      - { transaction_key: "cat12", master_key: _id, master_value: _class_code, append: [ "_class_name", "_class_level", "_class_unit" ] }
+      - { transaction_key: "cat13", master_key: _id, master_value: _class_code, append: [ "_class_name", "_class_level", "_class_unit" ] }
+      - { transaction_key: "cat14", master_key: _id, master_value: _class_code, append: [ "_class_name", "_class_level", "_class_unit" ] }
+      - { transaction_key: "cat15", master_key: _id, master_value: _class_code, append: [ "_class_name", "_class_level", "_class_unit" ] }
+      - { transaction_key: "tab",   master_key: _id, master_value: _class_code, append: [ "_class_name", "_class_level", "_class_unit" ] }
+      - { transaction_key: "time",  master_key: _id, master_value: _class_code, append: [ "_class_name", "_class_level", "_class_unit" ] }
+      - { transaction_key: "unit",  master_key: _id, master_value: _class_code, append: [ "_class_name", "_class_level", "_class_unit" ] }
+      
+out:
+  type: stdout
