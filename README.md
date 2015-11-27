@@ -1,6 +1,6 @@
-# Mapmt parser plugin for Embulk
+# e-stat parser plugin for Embulk
 
-TODO: Write short description here and embulk-parser-mapmt.gemspec file.
+TODO: Write short description here and embulk-parser-estat.gemspec file.
 
 ## Overview
 
@@ -19,7 +19,7 @@ TODO: Write short description here and embulk-parser-mapmt.gemspec file.
 in:
   type: any file input plugin type
   parser:
-    type: mapmt
+    type: estat
     option1: example1
     option2: example2
 ```
@@ -27,8 +27,8 @@ in:
 (If guess supported) you don't have to write `parser:` section in the configuration file. After writing `in:` section, you can let embulk guess `parser:` section using this command:
 
 ```
-$ embulk gem install embulk-parser-mapmt
-$ embulk guess -g mapmt config.yml -o guessed.yml
+$ embulk gem install embulk-parser-estat
+$ embulk guess -g estat config.yml -o guessed.yml
 ```
 
 ## Build
