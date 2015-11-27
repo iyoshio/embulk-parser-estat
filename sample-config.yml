@@ -1,6 +1,6 @@
 in:
   type: file
-  path_prefix: /home/vagrant/sample.
+  path_prefix: ./sample.
   parser:
     type:    estat
     charset: UTF-8
